@@ -1,0 +1,12 @@
+[submodule "bundle/Vundle.vim"]
+	path = bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "bundle/dracula"]
+	path = bundle/dracula
+	url = git@github.com:dracula/vim.git
