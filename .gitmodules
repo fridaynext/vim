@@ -7,3 +7,6 @@
 [submodule "bundle/dracula"]
 	path = bundle/dracula
 	url = git@github.com:dracula/vim.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git
