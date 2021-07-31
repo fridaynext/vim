@@ -10,3 +10,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "autoload/phpactor"]
+	path = autoload/phpactor
+	url = git@github.com:phpactor/phpactor.git
