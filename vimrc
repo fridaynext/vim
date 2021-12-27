@@ -20,13 +20,34 @@ set rtp+=~/.fzf
 " Mouse Scrolling
 set mouse=n
 
+" Keyboard Shortcuts
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Comma Leader Key
+let mapleader = ","
+
+" FZF include recent files in ⌘P
+nmap <silent> <leader>m :History<CR>
+
+" No fix for eol
+set nofixeol
+
 " Phpactor
 let g:phpactorPhpBin = "/usr/bin/php7.4"
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
+
+" vim-plug
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'phpactor/ncm2-phpactor'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf.vim'
 " Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -35,13 +56,13 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 "packadd YouCompleteMe
-packadd ncm2
-packadd phpcomplete.vim
-packadd fzf.vim
+"packadd ncm2
+"packadd phpcomplete.vim
+"packadd fzf.vim
 packadd! dracula_pro
-packadd vim-airline
-packadd vim-gitgutter
-packadd vim-airline-themes
+"packadd vim-airline
+"packadd vim-gitgutter
+"packadd vim-airline-themes
 syntax enable
 let g:dracula_colorterm = 1
 let g:airline_theme='dracula_pro'
