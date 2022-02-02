@@ -40,14 +40,17 @@ let g:phpactorPhpBin = "/usr/bin/php7.4"
 
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
 Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'phpactor/ncm2-phpactor'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+Plug 'StanAngeloff/php.vim'
+Plug 'preservim/tagbar'
 " Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -110,3 +113,6 @@ augroup tmux
 	autocmd VimLeave,FocusLost * call system("tmux set-window-option automatic-rename")
 	endif
 augroup END
+
+" ctags
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
