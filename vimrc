@@ -31,32 +31,37 @@ let mapleader = ","
 
 " FZF include recent files in ⌘P
 nmap <silent> <leader>m :History<CR>
+nmap <silent> <leader>0 :NERDTreeToggleVCS<CR>
+nmap <silent> <leader>b :Buffers<CR>
 
 " No fix for eol
 set nofixeol
 
 " Phpactor
-let g:phpactorPhpBin = "/usr/bin/php7.4"
+"let g:phpactorPhpBin = "/usr/bin/php7.4"
 
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-Plug 'phpactor/ncm2-phpactor'
+Plug 'neoclide/coc.nvim'
+Plug 'neovim/nvim-lspconfig'
+"Plug 'roxma/nvim-yarp'
+"Plug 'ncm2/ncm2'
+"Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
+"Plug 'phpactor/ncm2-phpactor'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'StanAngeloff/php.vim'
+"Plug 'StanAngeloff/php.vim'
 Plug 'preservim/tagbar'
+Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"set completeopt=noinsert,menuone,noselect
 
 "packadd YouCompleteMe
 "packadd ncm2
@@ -67,6 +72,8 @@ packadd! dracula_pro
 "packadd vim-gitgutter
 "packadd vim-airline-themes
 syntax enable
+" fix syntax highlighting
+autocmd BufEnter * syntax sync fromstart
 let g:dracula_colorterm = 1
 let g:airline_theme='dracula_pro'
 let g:dracula_italic = 1
@@ -97,6 +104,8 @@ set encoding=utf-8
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_section_c = ''
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " 256 colors
 "set term=xterm-256color
