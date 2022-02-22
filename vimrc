@@ -57,6 +57,9 @@ Plug 'tpope/vim-commentary'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-tmux-navigator'
+Plug 'mattn/emmet-vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 " ncm2
@@ -113,6 +116,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " vim file exploration
 let g:netrw_liststyle = 3
 set title
+
+" NERDTree Folder/Directory Icons
+"let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
+"let g:WebDevIconsUnicodeDecorateFolderNodesExactMatches['Model'] = ''
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
 " tmux vim title in tab
 augroup tmux
