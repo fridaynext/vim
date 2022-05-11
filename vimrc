@@ -5,8 +5,10 @@ filetype plugin on
 filetype plugin indent on
 
 " Pretty Colors
-let &t_8f = "[38;2;%lu;%lu;%lum"
-let &t_8b = "[48;2;%lu;%lu;%lum"
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "[38;2;%lu;%lu;%lum"
+  let &t_8b = "[48;2;%lu;%lu;%lum"
+endif
 set termguicolors
 
 " Italics
@@ -25,6 +27,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+map <C-}> :buf next
+map <C-{> :buf previous
 
 " Comma Leader Key
 let mapleader = ","
@@ -33,6 +37,7 @@ let mapleader = ","
 nmap <silent> <leader>m :History<CR>
 nmap <silent> <leader>0 :NERDTreeToggleVCS<CR>
 nmap <silent> <leader>b :Buffers<CR>
+nmap <silent> <leader>y <,'>:w !it2copy
 
 " No fix for eol
 set nofixeol
@@ -44,19 +49,13 @@ set nofixeol
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim'
 Plug 'neovim/nvim-lspconfig'
-"Plug 'roxma/nvim-yarp'
-"Plug 'ncm2/ncm2'
-"Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-"Plug 'phpactor/ncm2-phpactor'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-"Plug 'StanAngeloff/php.vim'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
-" Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -74,7 +73,8 @@ packadd! dracula_pro
 "packadd vim-airline
 "packadd vim-gitgutter
 "packadd vim-airline-themes
-syntax enable
+"syntax enable
+syntax on 
 " fix syntax highlighting
 autocmd BufEnter * syntax sync fromstart
 let g:dracula_colorterm = 1
