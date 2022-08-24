@@ -56,7 +56,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
