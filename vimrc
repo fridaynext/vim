@@ -1,5 +1,5 @@
 " set nocompatible
-"filetype on 
+filetype on 
 filetype indent on
 filetype plugin on
 filetype plugin indent on
@@ -57,13 +57,14 @@ set redrawtime=10000
 " let g:zsh_fold_enable = 1
 " let g:php_folding = 1
 
-" No fix for eol
+" No fix for eol - update, nm - would be nice to have this
 set nofixeol
 
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 "Plug 'neoclide/coc.nvim'
 "Plug 'konfekt/FastFold'
+Plug 'vim-php/phpctags', {'do': 'composer install' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -77,7 +78,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-"Plug 'preservim/tagbar'
+Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -111,6 +112,7 @@ set encoding=utf-8
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = ''
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -130,4 +132,6 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
 " ctags
+let g:tagbar_phpctags_bin='/home/cfriday/.local/share/plugged/phpctags/bin'
+let g:tagbar_phpctags_memory_limit = '1G'
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
