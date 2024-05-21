@@ -57,6 +57,9 @@ set redrawtime=10000
 " let g:zsh_fold_enable = 1
 " let g:php_folding = 1
 
+" increment letters, boi
+set nrformats=hex,alpha
+
 " No fix for eol - update, nm - would be nice to have this
 set nofixeol
 
@@ -73,6 +76,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
